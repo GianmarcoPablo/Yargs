@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev:one": "ts-node src/app.ts -b 10",
-    "dev": "tsnd --respawn --clear src/app.ts",
+    "dev:one": "ts-node src/app.ts",
+    "dev": "tsnd --respawn --clear src/app.ts -b 7",
     "build": "rimraf ./dist && tsc",
     "start": "npm run build && node dist/app.js"
   },
