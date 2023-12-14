@@ -2,28 +2,26 @@ import yargs, { options } from "yargs"
 import { hideBin } from "yargs/helpers"
 
 export const yarg = yargs(hideBin(process.argv))
-    .option("b", {
-        alias: "base",
+    .option("e", {
+        alias: "age",
         type: "number",
         demandOption: true,
-        describe: "Multiplication table base"
+        describe: "Your age"
     })
-    .option("l", {
-        alias: "limit",
+    .option("p", {
+        alias: "permission",
         type: "number",
-        default: 10,
-        describe: "Multiplication table limit"
+        default: 18,
+        describe: "Minimum age to access"
     })
-    .option("s", {
-        alias: "show",
+    .option("m", {
+        alias: "message",
         type: "boolean",
         default: false,
-        describe: "Show multiplication table on console"
+        describe: "Welcome to the disco"
     })
-    .check((argv: any, options) => {
-
-        if ((argv.base) < 1) throw "Error: base must be greater than 0"
-
+    .check((argv, options) => {
+        if (argv.e < argv.p) throw new Error("You not have permission to access")
         return true
     })
-    .parseSync() 
+    .parseSync();
