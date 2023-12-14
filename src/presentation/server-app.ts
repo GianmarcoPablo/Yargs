@@ -4,6 +4,9 @@ interface RunOptions {
     showTable: boolean;
 }
 
+const prueba = "hola"
+console.log(prueba);
+
 export class ServerApp {
 
     static run(options: RunOptions) {
